@@ -7,7 +7,12 @@ def intro():
     print(fg.blue + "The result will be written to the output terminal. \n" + fg.rs)
 
 def user_input(prompt):
-    return input(prompt)
+    user_in = input(prompt)
+    try:
+        user_in.isalpha()
+    except ValueError:
+        print("That's not a String!")
+    return user_in
 
 def output():
     print(
