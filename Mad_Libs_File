@@ -1,0 +1,122 @@
+from sty import fg, bg, ef, rs, RgbFg
+
+def user_input(prompt):
+    user_input = input(prompt)
+    return user_input
+
+def intro() :  
+      print("Welcome to the game of Mad Libs.")
+      print("I will ask you to provide various words")
+      print("and phrases to fill in a story.")
+      print("The result will be written to an output file.")
+      print()
+
+def end_game() :
+    print()
+    print("|---------------------|")
+    print("|-!-Ending: GoodBye-!-|")
+    print("|---------------------|")
+
+#look through the input file and copy text to the outputfile,
+#if text is "<" prompt ">" look to see if need a or an in front,
+#ask for a replacement article/prompt to paste to outputfile
+def process_file(user_input):
+      input = get_input_file()
+      PrintStream outputFile = get_output_file(user_input)
+      print("")
+      #loop through each line
+      while(input.hasNextLine()):
+         String line = input.nextLine()
+         Scanner lineScan = new Scanner(line)
+         #loop through each word
+         while(lineScan.hasNext()):
+            String str = lineScan.next()
+            #is it a prompt
+            if(str.charAt(0)== '<' and str.charAt(str.length()-1) == '>'):
+               String word = str.replace("<", "").replace(">", ": ").replace("-", " ")
+               #check what the promt is
+               if(str.charAt(1)== 'a' || str.charAt(1)== 'e' || str.charAt(1)== 'i' || str.charAt(1)== 'o' || str.charAt(1)== 'u'):
+                  String article = "an "
+                  print("Please type " + article + word)
+                  String newWord = sc.nextLine()
+                  outputFile.print(newWord + " ")
+
+               else :
+                  String article = "a "
+                  print("Please type " + article + word)
+                  String newWord = sc.nextLine()
+                  outputFile.print(newWord + " ")
+               
+            #if not a prompt just add to the outputfile 
+            else:
+                #add non-promt(regular word) to the output text file
+                outputFile.print(str + " ")
+            
+         #no more words on line
+         outputFile.println()
+      #no more lines in inputfile--- (tarzan, simple, etc)
+      print("Your mad-lib has been created!\n")
+   #done creating/prossesing your madlib
+
+def get_input_file():
+    #prompt user for file name
+    name = user_input("Input file name: ")
+    
+    f = open(name, "r+")
+    while(not f.exists()):
+        print("File not found. Try again: ")
+        name = user_input()
+        f = open(name, "r+")
+      
+    inputFile = new Scanner(f)
+    return inputFile
+   
+   
+#asks for a file to read from for the mad-lib game
+#and creates file (named by user) to input the information
+def get_output_file(Scanner sc): 
+    #user is creating an output txt file 
+    print("Output file name: ")
+    String name = sc.nextLine()
+    File f = new File(name)
+        
+        #create a new file with the name
+    PrintStream outputFile = new PrintStream(f)
+    return outputFile
+   
+def get_result_file(Scanner sc):
+    #user is trying to view a files text context
+    print("Input file name: ")
+    String name = sc.nextLine()
+    File f = new File(name)
+    
+    #if can't find ask till found
+    while(not f.exists()):
+        print("File not found. Try Again: ")
+        name = sc.nextLine()
+        f = new File(name)
+    
+    #when found loop through and print line by line
+    Scanner input = new Scanner(f)
+    print("")
+    while(input.hasNextLine()):
+        String line = input.nextLine()
+        #print each line from the file to the console
+        print(line)
+    #has no more lines in text the file
+    print("")
+
+
+intro()
+#prompt user to start, view, or quit
+action = user_input("(C)reate mad-lib, (V)iew mad-lib, (Q)uit? ").lower()
+    
+while(not action.equals("q")):
+    if (action.equals("c")):
+        process_file(user_input())
+        # end if action not c
+
+    if (action.equals("v")) :
+        get_result_file(user_input)
+        # end if action not v
+end_game()
