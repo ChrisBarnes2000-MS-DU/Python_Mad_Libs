@@ -1,9 +1,15 @@
 from sty import fg, bg, ef, rs, RgbFg
+import time
 
+#Display when starting the program
 def intro():
-    print(ef.bold + fg.yellow + "\nWelcome to the game of Mad Libs.")
-    print(fg.green + "I will ask you to provide various words")
-    print("and phrases to fill in a story.")
+    print(ef.bold + fg.yellow + "\nWelcome to the game of Mad Libs." + fg.rs)
+    print("""     _                            
+    | |                           
+    | |_ __ _ _ __ ______ _ _ __  
+    | __/ _` | '__|_  / _` | '_ \ 
+    | || (_| | |   / / (_| | | | |
+     \__\__,_|_|  /___\__,_|_| |_|       """)
     print(fg.blue + "The result will be written to the output terminal. \n" + fg.rs)
 
 # get user input and verify its a string
@@ -15,6 +21,7 @@ def user_input(prompt):
         user_in = user_input("try again: "+ bg.rs+ rs.fg)
     return user_in
 
+#attempt at adding Randomization
 adjective = list()
 plural_noun = list()
 noun = list()
@@ -25,40 +32,48 @@ words = {
     "noun": noun
 }
 
-def output():
+def random_output():
+    print("This will be a Randomized Mad Lib Story")
+
+#Display the story output
+def custom_output():
+    print(fg.green + "I will ask you to provide various words")
+    print("and phrases to fill in the story.")
+    time.sleep(0.6)
     print(
         fg.rs + "\nOne of the most " + user_input(fg.red + "give an adjective: "+ fg.yellow)
         + " characters in fiction is named Tarzan of the "
         + user_input(fg.green + "give a plural-noun: " + fg.yellow)
-        + ".Tarzan was raised by a/an "
+        + ".\nTarzan was raised by a/an "
         + user_input(fg.blue + "give a noun: " + fg.yellow)
         + " and lives in the "
         + user_input(fg.red + "give an adjective: " + fg.yellow)
         + " jungle in the heart of the darkest "
         + user_input(fg.da_magenta + "add a place: " + fg.yellow)
-        + ". He spends most of his time eating "
+        + ".\nHe spends most of his time eating "
         + user_input(fg.green + "give a plural-noun: " + fg.yellow)
         + " and swinging from tree to "
         + user_input(fg.blue + "give a noun: " + fg.yellow)
-        + ". Whenever he gets angry, he beats on his chest and says, "
+        + ".\nWhenever he gets angry, he beats on his chest and says, "
         + user_input(fg.cyan + "give a funny noise: " + fg.yellow)
-        + "! This is his war cry. Tarzan always dresses in "
+        + "! This is his war cry.\nTarzan always dresses in "
         + user_input(fg.red + "give an adjective: " + fg.yellow)
         + " shorts made from the skin of a/an "
         + user_input(fg.blue + "give a noun: " + fg.yellow)
         + " and his best friend is a/an "
         + user_input(fg.red + "give an adjective: " + fg.yellow)
-        + " chimpanzee named Cheetah. He is supposed to be able to speak to elephants and "
+        + " chimpanzee named Cheetah. "+
+        "\nHe is supposed to be able to speak to elephants and "
         + user_input(fg.green + "give a plural-noun: " + fg.yellow)
-        + ". In the movies, Tarzan is played by "
+        + ".\nIn the movies, Tarzan is played by "
         + user_input(fg.cyan + "Finally give a person's name: " + fg.yellow) + "."
     )
 
 
-
+#Main Function area to run program
 intro()
-play = "user"
-if play == "user":
-    output()
-elif play == "auto":
-    output()
+play = user_input("Would you like a (R)andomized madlib or a (C)ustom one: ")
+if play.upper() == "C":
+    custom_output()
+elif play.upper() == "R":
+    random_output()
