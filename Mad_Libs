@@ -11,67 +11,67 @@ def user_input(prompt):
     return input(prompt)
 
 
-def random_word(part_of_speech):
-     word_list = {
-        "adjective": ["Jump", "Swim"],
-        "plural_noun": ["plural_noun", "sh"],
-        "noun": ["noun", "hp"],
-        "place": ["place", "hi"],
-        "funny_noise": ["funny_noise", "no"],
-        "name": ["name", "ho"],
-    }
+# def random_word(part_of_speech):
+#      word_list = {
+#         "adjective": ["Enthusiastic", "fierce", "repulsive", "gentle"],
+#         "plural_noun": ["moons", "people", yes],
+#         "noun": ["school", "things", "sonic"],
+#         "place": ["hotel"],
+#         "funny_noise": ["yahee"],
+#         "name": ["luke"],
+#     }
 
-    # return word_list[part_of_speech][r.randrange(len(word_list[part_of_speech]))]
+#     return word_list[part_of_speech][r.randrange(len(word_list[part_of_speech]))]
 
-def olduser_input(prompt, part_of_speech):
-    if part_of_speech == "nouns":
-        user_input = "user_input"
-    if part_of_speech == "verbs":
-        user_input = "user_input"
-    if part_of_speech == "adjective":
-        user_input = "user_input"
-    if part_of_speech == "names":
-        user_input = "user_input"
-    else:
-        user_input = "user_input"
+# def olduser_input(prompt, part_of_speech):
+#     if part_of_speech == "nouns":
+#         user_input = "user_input"
+#     if part_of_speech == "verbs":
+#         user_input = "user_input"
+#     if part_of_speech == "adjective":
+#         user_input = "user_input"
+#     if part_of_speech == "names":
+#         user_input = "user_input"
+#     else:
+#         user_input = "user_input"
 
-    return user_input
+#     return user_input
 
-def output():
-    print(
-        "One of the most " + user_input("give an adjective: ", "adjective") 
-        + "characters in fiction is named Tarzan of the "
-        + user_input("give a plural-noun: ", "plural_noun")
-        + ". \nTarzan was raised by a/an "
-        + user_input("give a noun: ", "noun")
-        + " and lives in the "
-        + user_input("give an adjective: ", "adjective")
-        + " jungle in the heart of the darkest "
-        + user_input("add a place: ", "place")
-        + ". He spends most of his time eating "
-        + user_input("give a plural-noun: ", "plural-noun")
-        + " and swinging from tree to "
-        + user_input("give a noun: ","noun")
-        + ". Whenever he gets angry, he beats on his chest and says,"
-        + user_input("give a funny noise: ", "funny_noise")
-        + "! This is his war cry. Tarzan always dresses in "
-        + user_input("give an adjective: ", "adjective")
-        + " shorts made from the skin of a/an "
-        + user_input("give a noun: ", "noun")
-        + "and his best friend is a/an "
-        + user_input("give an adjective: ", "adjective")
-        + " chimpanzee named Cheetah. He is supposed to be able to speak to elephants and "
-        + user_input("give a plural-noun: ", "plural-noun")
-        + ". In the movies, Tarzan is played by "
-        + user_input("Finally give a person's name: ", "name") + "."
-    )
+# def output():
+#     print(
+#         "One of the most " + user_input("give an adjective: ", "adjective") 
+#         + "characters in fiction is named Tarzan of the "
+#         + user_input("give a plural-noun: ", "plural_noun")
+#         + ". \nTarzan was raised by a/an "
+#         + user_input("give a noun: ", "noun")
+#         + " and lives in the "
+#         + user_input("give an adjective: ", "adjective")
+#         + " jungle in the heart of the darkest "
+#         + user_input("add a place: ", "place")
+#         + ". He spends most of his time eating "
+#         + user_input("give a plural-noun: ", "plural-noun")
+#         + " and swinging from tree to "
+#         + user_input("give a noun: ","noun")
+#         + ". Whenever he gets angry, he beats on his chest and says,"
+#         + user_input("give a funny noise: ", "funny_noise")
+#         + "! This is his war cry. Tarzan always dresses in "
+#         + user_input("give an adjective: ", "adjective")
+#         + " shorts made from the skin of a/an "
+#         + user_input("give a noun: ", "noun")
+#         + "and his best friend is a/an "
+#         + user_input("give an adjective: ", "adjective")
+#         + " chimpanzee named Cheetah. He is supposed to be able to speak to elephants and "
+#         + user_input("give a plural-noun: ", "plural-noun")
+#         + ". In the movies, Tarzan is played by "
+#         + user_input("Finally give a person's name: ", "name") + "."
+#     )
 
 def newoutput():
     print(
-        "One of the most " + user_input("give an adjective: ") 
+        "\nOne of the most " + fg.red + user_input("give an adjective: ") 
         + "characters in fiction is named Tarzan of the "
         + user_input("give a plural-noun: ")
-        + ". \nTarzan was raised by a/an "
+        + ".Tarzan was raised by a/an "
         + user_input("give a noun: ")
         + " and lives in the "
         + user_input("give an adjective: ")
@@ -87,7 +87,7 @@ def newoutput():
         + user_input("give an adjective: ")
         + " shorts made from the skin of a/an "
         + user_input("give a noun: ")
-        + "and his best friend is a/an "
+        + " and his best friend is a/an "
         + user_input("give an adjective: ")
         + " chimpanzee named Cheetah. He is supposed to be able to speak to elephants and "
         + user_input("give a plural-noun: ")
@@ -98,5 +98,8 @@ def newoutput():
 
 
 intro()
+
+print(fg.red + "Red Text" + fg.rs)
+
 # get_input()
-newoutput()
+#newoutput()
