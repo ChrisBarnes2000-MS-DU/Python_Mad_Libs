@@ -6,13 +6,24 @@ def intro():
     print("and phrases to fill in a story.")
     print(fg.blue + "The result will be written to the output terminal. \n" + fg.rs)
 
+# get user input and verify its a string
 def user_input(prompt):
     user_in = input(prompt)
-    try:
-        user_in.isalpha()
-    except ValueError:
-        print("That's not a String!")
+    # checks if input is alphanumeric
+    if not user_in.isalpha():
+        print(bg.black+ fg.red+ "That's not a String!")
+        user_in = user_input("try again: "+ bg.rs+ rs.fg)
     return user_in
+
+adjective = list()
+plural_noun = list()
+noun = list()
+
+words = {
+    "adjective": adjective, 
+    "plural_noun": plural_noun,
+    "noun": noun
+}
 
 def output():
     print(
@@ -46,4 +57,8 @@ def output():
 
 
 intro()
-output()
+play = "user"
+if play == "user":
+    output()
+elif play == "auto":
+    output()
